@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/BackgroundStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".mvvmcleanapp.presentation.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/main_activity_title"
+        style="@style/TitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_title"
+        android:text="@string/main_activity_title"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/main_activity_description"
+        style="@style/DescriptionStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="@dimen/card_elevation"
+        android:text="@string/main_activity_description"
+        app:layout_constraintBottom_toTopOf="@id/main_activity_button"
+        app:layout_constraintTop_toBottomOf="@id/main_activity_title" />
+
+    <Button
+        android:id="@+id/main_activity_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/main_activity_button"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/main_activity_image_content_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/popcorn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
