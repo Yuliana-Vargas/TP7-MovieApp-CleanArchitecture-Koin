@@ -1,6 +1,6 @@
 package com.example.movieapp.mvvmcleanapp.domain.entity
 
-data class MovieData(
+data class Movie(
     val id: Int,
     val title: String,
     val posterPath: String,

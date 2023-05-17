@@ -2,7 +2,7 @@ package com.example.movieapp.mvvmcleanapp.data.service.response
 
 import com.google.gson.annotations.SerializedName
 
-data class Movie(
+data class MovieResponse(
     @SerializedName("id")
     var id: Int,
     @SerializedName("title")

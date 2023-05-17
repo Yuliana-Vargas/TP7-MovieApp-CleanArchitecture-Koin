@@ -1,14 +1,14 @@
 package com.example.movieapp.mvvmcleanapp.data.service.util
 
 import com.example.movieapp.mvvmcleanapp.data.entity.MovieEntity
-import com.example.movieapp.mvvmcleanapp.data.service.response.MovieList
-import com.example.movieapp.mvvmcleanapp.domain.entity.MovieData
+import com.example.movieapp.mvvmcleanapp.data.service.response.ResultResponse
+import com.example.movieapp.mvvmcleanapp.domain.entity.Movie
 
-fun MovieList.transformToList(): List<MovieData> {
-    val movieList = mutableListOf<MovieData>()
+fun ResultResponse.transformToList(): List<Movie> {
+    val movieList = mutableListOf<Movie>()
     results.forEach() {
         movieList.add(
-            MovieData(
+            Movie(
                 it.id,
                 it.title,
                 it.posterPath,
@@ -19,14 +19,14 @@ fun MovieList.transformToList(): List<MovieData> {
     return movieList
 }
 
-fun MovieEntity.toMovie() = MovieData(
+fun MovieEntity.toMovie() = Movie(
     this.id,
     this.title,
     this.posterPath,
     this.voteAverage,
 )
 
-fun MovieData.toMovieDB() = MovieEntity(
+fun Movie.toMovieDB() = MovieEntity(
     this.id,
     this.title,
     this.posterPath,

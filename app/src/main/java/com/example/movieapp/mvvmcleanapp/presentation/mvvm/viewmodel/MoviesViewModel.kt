@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.movieapp.mvvmcleanapp.domain.entity.Movie
 import com.example.movieapp.mvvmcleanapp.domain.util.CoroutineResult
 import com.example.movieapp.mvvmcleanapp.presentation.di.model.MoviesModel
 import kotlinx.coroutines.Dispatchers
@@ -34,7 +35,7 @@ class MoviesViewModel(private val model: MoviesModel) : ViewModel() {
 
     data class MovieData(
         val status: MovieStatus,
-        val movies: List<com.example.movieapp.mvvmcleanapp.domain.entity.MovieData>,
+        val movies: List<Movie>,
     )
 
     enum class MovieStatus {

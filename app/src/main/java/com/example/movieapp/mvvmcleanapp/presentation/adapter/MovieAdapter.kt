@@ -7,9 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movieapp.R
 import com.example.movieapp.databinding.ItemRecyclerBinding
-import com.example.movieapp.mvvmcleanapp.domain.entity.MovieData
+import com.example.movieapp.mvvmcleanapp.domain.entity.Movie
 
-class MovieAdapter(private val movies: List<MovieData>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+class MovieAdapter(private val movies: List<Movie>) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_recycler, parent, false))
     }
@@ -23,7 +23,7 @@ class MovieAdapter(private val movies: List<MovieData>) : RecyclerView.Adapter<M
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = ItemRecyclerBinding.bind(itemView)
 
-        fun bind(movie: MovieData) {
+        fun bind(movie: Movie) {
             binding.id.text = itemView.context.getString(R.string.card_id, movie.id.toString())
             binding.title.text = itemView.context.getString(R.string.card_title, movie.title)
             binding.voteAverage.text = itemView.context.getString(R.string.card_vote_average, movie.voteAverage.toString())
