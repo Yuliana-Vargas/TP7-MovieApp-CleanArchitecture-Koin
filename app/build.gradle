@@ -16,6 +16,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "MOVIE_BASE_URL", "\"https://api.themoviedb.org\""
+        buildConfigField "String", "API_TOKEN", "\"eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2I1NzQ2MGQxMzRiY2M1OTAyMWI2YzUwNTgzOTRjYSIsInN1YiI6IjYyOTdlZDE3M2ZhYmEwMDA5YjFkMDkyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wuM9MKeQE0x69B6DY5tL2m8E7RWbkrHBCDiZ13aN-JE\""
+
     }
 
     buildTypes {

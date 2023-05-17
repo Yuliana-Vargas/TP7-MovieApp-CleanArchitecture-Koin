@@ -1,15 +1,15 @@
 package com.example.movieapp.mvvmcleanapp.data.service
 
+import com.example.movieapp.BuildConfig
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 class MovieRequestGenerator {
-    private val API_MOVIES_URL = "https://api.themoviedb.org"
     private val httpClient = OkHttpClient.Builder()
 
-    private val builder = Retrofit.Builder().baseUrl(API_MOVIES_URL).addConverterFactory(GsonConverterFactory.create())
+    private val builder = Retrofit.Builder().baseUrl(BuildConfig.MOVIE_BASE_URL).addConverterFactory(GsonConverterFactory.create())
 
     fun <S> createService(serviceClass: Class<S>): S {
         val retrofit = builder.client(httpClient.build())
@@ -18,16 +18,11 @@ class MovieRequestGenerator {
             val originalHttpUrl = original.url()
             val url = originalHttpUrl.newBuilder().build()
             val requestBuilder = original.newBuilder().url(url)
-                .header("Authorization", "Bearer ${Companion.API_TOKEN}")
+                .header("Authorization", "Bearer ${BuildConfig.API_TOKEN}")
             val request = requestBuilder.build()
             chain.proceed(request)
         }
         val client = httpClient.addInterceptor(apiKeyInterceptor).build()
         return retrofit.client(client).build().create(serviceClass)
-    }
-
-    companion object {
-        private const val API_TOKEN =
-            "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjY2I1NzQ2MGQxMzRiY2M1OTAyMWI2YzUwNTgzOTRjYSIsInN1YiI6IjYyOTdlZDE3M2ZhYmEwMDA5YjFkMDkyOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wuM9MKeQE0x69B6DY5tL2m8E7RWbkrHBCDiZ13aN-JE"
     }
 }
