@@ -5,12 +5,14 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.movieapp.databinding.ActivityMainBinding
 import com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel.MainViewModel
+import org.koin.android.ext.android.inject
+import org.koin.core.component.KoinComponent
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), KoinComponent {
 
     private lateinit var binding: ActivityMainBinding
 
-    private val viewModel: MainViewModel = MainViewModel()
+    private val viewModel: MainViewModel by inject()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

@@ -1,4 +1,4 @@
-package com.example.movieapp.mvvmcleanapp.presentation.fragment
+package com.example.movieapp.mvvmcleanapp.presentation.adapter.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,6 +15,7 @@ class ErrorDialogFragment : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View = binding.root
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = CustomDialogBinding.inflate(layoutInflater)

@@ -4,37 +4,37 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.movieapp.mvvm.contract.MoviesContract
-import com.example.movieapp.mvvmcleanapp.data.service.response.Movie
 import com.example.movieapp.mvvmcleanapp.domain.util.CoroutineResult
+import com.example.movieapp.mvvmcleanapp.presentation.di.model.MoviesModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class MoviesViewModel(private val model: MoviesContract.Model) : ViewModel(), MoviesContract.ViewModel {
+class MoviesViewModel(private val model: MoviesModel) : ViewModel() {
     private val mutableLiveData: MutableLiveData<MovieData> = MutableLiveData()
-    override fun getValue(): LiveData<MovieData> = mutableLiveData
+    fun getValue(): LiveData<MovieData> = mutableLiveData
 
-    override fun callService() = viewModelScope.launch {
+    fun callService() = viewModelScope.launch {
         withContext(Dispatchers.IO) { model.getMovies() }.let { result ->
             when (result) {
                 is CoroutineResult.Success -> {
-                    mutableLiveData.value = MovieData(MovieStatus.SHOW_BUTTON_PRESSED, result.data)
+                    mutableLiveData.value =
+                        MovieData(MovieStatus.SHOW_BUTTON_PRESSED, result.data)
                 }
                 is CoroutineResult.Failure -> {
-                    mutableLiveData.value = MovieData(MovieStatus.EMPTY_STATE, emptyList())
+                    mutableLiveData.value =
+                        MovieData(MovieStatus.EMPTY_STATE, emptyList())
                 }
             }
         }
     }
-
-    override fun onBackButtonPressed() {
+    fun onBackButtonPressed() {
         mutableLiveData.postValue(MovieData(MovieStatus.BACK_BUTTON_PRESSED, emptyList()))
     }
 
     data class MovieData(
         val status: MovieStatus,
-        val movies: List<Movie>,
+        val movies: List<com.example.movieapp.mvvmcleanapp.domain.entity.MovieData>,
     )
 
     enum class MovieStatus {

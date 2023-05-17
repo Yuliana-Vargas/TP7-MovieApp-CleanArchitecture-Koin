@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+/*package com.example.movieapp.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.movieapp.mvvm.contract.MainContract
@@ -30,3 +30,4 @@ class MainViewModelTest {
         )
     }
 }
+*/

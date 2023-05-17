@@ -3,12 +3,13 @@ package com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.movieapp.mvvm.contract.MainContract
 
-class MainViewModel : ViewModel(), MainContract.MainViewModel {
-    private val mutableLiveData: MutableLiveData<MainData> = MutableLiveData()
-    override fun getValue(): LiveData<MainData> = mutableLiveData
-    override fun onPressedButton() {
+class MainViewModel : ViewModel() {
+    private val mutableLiveData: MutableLiveData<MainData> =
+        MutableLiveData()
+
+    fun getValue(): LiveData<MainData> = mutableLiveData
+    fun onPressedButton() {
         mutableLiveData.postValue(MainData(MainStatus.SHOW_MOVIES))
     }
 

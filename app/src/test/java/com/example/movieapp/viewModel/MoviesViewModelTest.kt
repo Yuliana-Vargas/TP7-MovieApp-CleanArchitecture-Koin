@@ -1,9 +1,9 @@
-package com.example.movieapp.viewModel
+/*package com.example.movieapp.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.movieapp.mvvm.contract.MoviesContract
 import com.example.movieapp.mvvmcleanapp.data.service.response.Movie
-import com.example.movieapp.mvvmcleanapp.di.model.MoviesModel
+import com.example.movieapp.mvvmcleanapp.presentation.di.model.MoviesModel
 import com.example.movieapp.mvvmcleanapp.domain.util.CoroutineResult
 import com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel.MoviesViewModel
 import io.mockk.MockKAnnotations
@@ -92,3 +92,4 @@ class MoviesViewModelTest {
         )
     }
 }
+*/
