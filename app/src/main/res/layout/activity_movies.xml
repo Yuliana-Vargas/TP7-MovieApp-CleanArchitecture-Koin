@@ -27,6 +27,7 @@
         android:id="@+id/movies_activity_back_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_color"
         android:text="@string/movies_activity_back_button"
         app:layout_constraintBottom_toBottomOf="parent" />
 

@@ -17,7 +17,7 @@
 
     <style name="BackgroundStyle">
         <item name="android:padding">@dimen/container</item>
-        <item name="android:background">@color/light_violet</item>
+        <item name="android:background">@drawable/gradient_background</item>
     </style>
 
     <style name="TextStyle">
