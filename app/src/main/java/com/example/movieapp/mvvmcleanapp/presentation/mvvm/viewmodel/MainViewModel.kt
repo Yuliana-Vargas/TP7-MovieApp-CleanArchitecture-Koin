@@ -13,11 +13,15 @@ class MainViewModel : ViewModel() {
         mutableLiveData.postValue(MainData(MainStatus.SHOW_MOVIES))
     }
 
+    fun onShowDialogErrorPressedButton(){
+        mutableLiveData.postValue(MainData(MainStatus.SHOW_DIALOG_ERROR))
+    }
+
     data class MainData(
         val status: MainStatus,
     )
 
     enum class MainStatus {
-        SHOW_MOVIES,
+        SHOW_MOVIES, SHOW_DIALOG_ERROR
     }
 }

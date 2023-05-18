@@ -31,7 +31,17 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_color"
         android:text="@string/main_activity_button"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toTopOf="@id/main_activity_dialog_button"
+        />
+
+    <Button
+        android:id="@+id/main_activity_dialog_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_color"
+        android:text="@string/main_activity_dialog_button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="15dp" />
 
     <ImageView
         android:id="@+id/imageView"

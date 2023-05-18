@@ -39,6 +39,6 @@ class MoviesViewModel(private val model: MoviesModel) : ViewModel() {
     )
 
     enum class MovieStatus {
-        SHOW_BUTTON_PRESSED, BACK_BUTTON_PRESSED, EMPTY_STATE,
+        SHOW_BUTTON_PRESSED, BACK_BUTTON_PRESSED, EMPTY_STATE
     }
 }

@@ -2,7 +2,7 @@
     <string name="app_name">MovieApp</string>
     <string name="main_activity_title">MOVIE APP!</string>
     <string name="main_activity_description">Click on the button to get a list of the 20 most popular movies</string>
-    <string name="main_activity_button">Show</string>
+    <string name="main_activity_button">Show movies</string>
     <string name="main_activity_image_content_description">Popcorn background image</string>
 
     <string name="card_id">ID: %1$s</string>
@@ -19,6 +19,7 @@
 
     <string name="error_dialog_fragment_title">Error</string>
     <string name="error_dialog_fragment_button_ok">OK</string>
-    <string name="error_dialog_fragment_error_message">Unable to connect to the server.</string>
+    <string name="error_dialog_fragment_error_message">An error occurred, please try again later.</string>
+    <string name="main_activity_dialog_button">Show dialog Error</string>
 
 </resources>

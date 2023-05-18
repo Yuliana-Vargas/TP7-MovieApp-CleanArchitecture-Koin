@@ -38,14 +38,8 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
             }
             MoviesViewModel.MovieStatus.EMPTY_STATE -> {
                 showErrorMessage()
-                showErrorDialog()
             }
         }
-    }
-
-    private fun showErrorDialog() {
-        val dialog = ErrorDialogFragment.newInstance(getString(R.string.error_dialog_fragment_error_message))
-        dialog.show(supportFragmentManager, ErrorDialogFragment.TAG)
     }
 
     private fun showErrorMessage() {
