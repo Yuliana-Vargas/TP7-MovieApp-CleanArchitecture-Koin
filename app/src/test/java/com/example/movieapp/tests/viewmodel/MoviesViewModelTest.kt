@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.tests.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.example.movieapp.mvvmcleanapp.domain.entity.Movie

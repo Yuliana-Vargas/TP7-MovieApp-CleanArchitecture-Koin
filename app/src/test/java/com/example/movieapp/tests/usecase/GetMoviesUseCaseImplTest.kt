@@ -1,4 +1,4 @@
-package com.example.movieapp.viewModel
+package com.example.movieapp.tests.usecase
 
 import com.example.movieapp.mvvmcleanapp.domain.database.MovieDataBase
 import com.example.movieapp.mvvmcleanapp.domain.entity.Movie
