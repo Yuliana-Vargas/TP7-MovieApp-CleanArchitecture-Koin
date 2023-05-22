@@ -13,7 +13,7 @@ class MainViewModel : ViewModel() {
         mutableLiveData.postValue(MainData(MainStatus.SHOW_MOVIES))
     }
 
-    fun onShowDialogErrorPressedButton(){
+    fun onShowDialogErrorPressedButton() {
         mutableLiveData.postValue(MainData(MainStatus.SHOW_DIALOG_ERROR))
     }
 

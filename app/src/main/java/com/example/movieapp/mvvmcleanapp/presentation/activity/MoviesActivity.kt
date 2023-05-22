@@ -4,10 +4,8 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isGone
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.movieapp.R
 import com.example.movieapp.databinding.ActivityMoviesBinding
 import com.example.movieapp.mvvmcleanapp.presentation.adapter.MovieAdapter
-import com.example.movieapp.mvvmcleanapp.presentation.adapter.fragment.ErrorDialogFragment
 import com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel.MoviesViewModel
 import org.koin.android.ext.android.inject
 import org.koin.core.component.KoinComponent
