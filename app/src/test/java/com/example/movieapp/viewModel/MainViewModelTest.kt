@@ -1,7 +1,6 @@
-/*package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.movieapp.mvvm.contract.MainContract
 import com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel.MainViewModel
 import org.junit.Assert
 import org.junit.Before
@@ -10,7 +9,7 @@ import org.junit.Test
 import org.junit.rules.TestRule
 
 class MainViewModelTest {
-    private lateinit var mainViewModel: MainContract.MainViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     @get:Rule
     val rule: TestRule = InstantTaskExecutorRule()
@@ -21,7 +20,7 @@ class MainViewModelTest {
     }
 
     @Test
-    fun `set livedata with SHOW_MOVIES as value`() {
+    fun `set status with SHOW_MOVIES as value`() {
         mainViewModel.onPressedButton()
 
         Assert.assertEquals(
@@ -29,5 +28,14 @@ class MainViewModelTest {
             mainViewModel.getValue().value?.status,
         )
     }
+
+    @Test
+    fun `set status with SHOW_DIALOG_ERROR as value`() {
+        mainViewModel.onShowDialogErrorPressedButton()
+
+        Assert.assertEquals(
+            MainViewModel.MainStatus.SHOW_DIALOG_ERROR,
+            mainViewModel.getValue().value?.status,
+        )
+    }
 }
-*/
