@@ -1,10 +1,10 @@
-/*package com.example.movieapp.viewModel
+package com.example.movieapp.viewModel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.movieapp.mvvm.contract.MoviesContract
-import com.example.movieapp.mvvmcleanapp.data.service.response.Movie
-import com.example.movieapp.mvvmcleanapp.presentation.di.model.MoviesModel
+import com.example.movieapp.mvvmcleanapp.domain.entity.Movie
+import com.example.movieapp.mvvmcleanapp.domain.usecase.GetMoviesUseCase
 import com.example.movieapp.mvvmcleanapp.domain.util.CoroutineResult
+import com.example.movieapp.mvvmcleanapp.presentation.di.model.MoviesModel
 import com.example.movieapp.mvvmcleanapp.presentation.mvvm.viewmodel.MoviesViewModel
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -26,10 +26,11 @@ import java.lang.Exception
 @OptIn(ExperimentalCoroutinesApi::class)
 class MoviesViewModelTest {
     private val testDispatcher = TestCoroutineDispatcher()
-    private lateinit var moviesViewModel: MoviesContract.ViewModel
+    private lateinit var moviesViewModel: MoviesViewModel
+    private lateinit var moviesModel: MoviesModel
 
     @MockK
-    private lateinit var moviesModel: MoviesModel
+    private lateinit var getMoviesUseCase: GetMoviesUseCase
 
     @MockK
     private lateinit var movies: List<Movie>
@@ -40,6 +41,7 @@ class MoviesViewModelTest {
     @Before
     fun setUp() {
         MockKAnnotations.init(this)
+        moviesModel = MoviesModel(getMoviesUseCase)
         moviesViewModel = MoviesViewModel(moviesModel)
         Dispatchers.setMain(testDispatcher)
     }
@@ -52,9 +54,11 @@ class MoviesViewModelTest {
 
     @Test
     fun `on CoroutineResult Success, status should be SHOW_BUTTON_PRESSED`() {
-        coEvery { moviesModel.getMovies() } returns CoroutineResult.Success(movies)
+        coEvery { getMoviesUseCase() } returns CoroutineResult.Success(movies)
 
-        runBlocking { moviesViewModel.callService().join() }
+        runBlocking {
+            moviesViewModel.callService().join()
+        }
 
         assertEquals(
             MoviesViewModel.MovieStatus.SHOW_BUTTON_PRESSED,
@@ -68,7 +72,7 @@ class MoviesViewModelTest {
 
     @Test
     fun `on CoroutineResult Failure, status should be EMPTY_STATE`() {
-        coEvery { moviesModel.getMovies() } returns CoroutineResult.Failure(Exception())
+        coEvery { getMoviesUseCase() } returns CoroutineResult.Failure(Exception())
 
         runBlocking { moviesViewModel.callService().join() }
 
@@ -92,4 +96,3 @@ class MoviesViewModelTest {
         )
     }
 }
-*/
