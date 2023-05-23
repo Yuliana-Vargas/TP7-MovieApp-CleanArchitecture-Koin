@@ -19,10 +19,10 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
 
         binding = ActivityMoviesBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        viewModel.getValue().observe(this) { updateUI(it) }
         viewModel.callService()
 
         binding.moviesActivityBackButton.setOnClickListener { viewModel.onBackButtonPressed() }
-        viewModel.getValue().observe(this) { updateUI(it) }
     }
 
     private fun updateUI(data: MoviesViewModel.MovieData) {
@@ -43,10 +43,5 @@ class MoviesActivity : AppCompatActivity(), KoinComponent {
     private fun showErrorMessage() {
         binding.recycler.isGone = true
         binding.movieActivityErrorMessage.isGone = false
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.callService()
     }
 }
